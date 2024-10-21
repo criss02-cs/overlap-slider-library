@@ -1,24 +1,49 @@
 # OverlapSlider
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+Questa libreria è stata generata con [Angular CLI](https://github.com/angular/angular-cli) versione 17.3.0.
 
-## Code scaffolding
+## Introduzione
 
-Run `ng generate component component-name --project overlap-slider` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project overlap-slider`.
-> Note: Don't forget to add `--project overlap-slider` or else it will be added to the default project in your `angular.json` file. 
+`OverlapSlider` è un componente Angular che permette di sovrapporre due sezioni di contenuto e di alternarle con un'animazione.
 
-## Build
+## Installazione
 
-Run `ng build overlap-slider` to build the project. The build artifacts will be stored in the `dist/` directory.
+Per installare la libreria, esegui:
 
-## Publishing
+```sh
+npm install overlap-slider
+```
+app.component.ts
+```ts
+import { Component } from '@angular/core';
+import { OverlapSliderService } from 'overlap-slider';
 
-After building your library with `ng build overlap-slider`, go to the dist folder `cd dist/overlap-slider` and run `npm publish`.
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  constructor(private overlapSliderService: OverlapSliderService) {}
 
-## Running unit tests
+  toggleSlider() {
+    this.overlapSliderService.toggle();
+  }
+}
 
-Run `ng test overlap-slider` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+app.component.html
+```html
+<button (click)="toggleSlider()">Toggle Slider</button>
+<overlap-slider>
+  <div first style="background-color: red;">
+    <h1>Primo Contenuto</h1>
+    <p>Questo è il primo contenuto.</p>
+  </div>
+  <div second style="background-color: yellow;">
+    <h1>Secondo Contenuto</h1>
+    <p>Questo è il secondo contenuto.</p>
+  </div>
+</overlap-slider>
+```
