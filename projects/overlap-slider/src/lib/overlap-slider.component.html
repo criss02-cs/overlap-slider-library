@@ -1,0 +1,8 @@
+<div [class]="'container ' + overlapService.currentState()">
+    <div class="first">
+        <ng-content select="[first]"></ng-content>
+    </div>
+    <div class="second">
+        <ng-content select="[second]"></ng-content>
+    </div>
+</div>

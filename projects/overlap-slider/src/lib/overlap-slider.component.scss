@@ -1,0 +1,53 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    div {
+        grid-row-start: 1;
+        grid-column-start: 1;
+    }
+
+    &.initial {
+        .second {
+            display: none;
+        }
+    }
+
+    &.visible {
+        .second {
+            animation: fadeindown 1.5s cubic-bezier(0, 0, 0.2, 1);
+        }
+    }
+
+    &.not-visible {
+        .second {
+            animation: fadeoutdown 1.5s cubic-bezier(0, 0, 0.2, 1);
+        }
+    }
+}
+
+@keyframes fadeindown {
+    0% {
+        opacity: 0;
+        display: none;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes fadeoutdown {
+    0% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+        transform: translateY(100%);
+    }
+}
