@@ -16,12 +16,14 @@
     &.visible {
         .second {
             animation: fadeindown 1.5s cubic-bezier(0, 0, 0.2, 1);
+            animation-fill-mode: forwards;
         }
     }
 
     &.not-visible {
         .second {
             animation: fadeoutdown 1.5s cubic-bezier(0, 0, 0.2, 1);
+            animation-fill-mode: forwards;
         }
     }
 }

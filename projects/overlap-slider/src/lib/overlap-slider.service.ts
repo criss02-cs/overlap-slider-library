@@ -15,11 +15,5 @@ export class OverlapSliderService {
         return 'visible';
       }
     });
-    const element = document.querySelector('.second') as HTMLDivElement;
-    if(!element) return;
-    const milliseconds = this.currentState() === 'visible' ? 0 : 1500;
-    setTimeout(() => {
-      element.style.display = this.currentState() === 'visible' ? 'block' : 'none';
-    }, milliseconds);
   }
 }
